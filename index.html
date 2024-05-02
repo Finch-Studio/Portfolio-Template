@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A personal and business portfolio showcasing the projects and services of Amy Finch (Finchy), a Developer, Environment Artist, Entrepreneur, Nerd, and Gamer.">
+    <meta name="keywords" content="Finchy, Developer, Environment Artist, Entrepreneur, Nerd, Gamer, Portfolio, Business, Personal, Media Void, Finch Studio, Amazon Lumberyard, O3DE, Skynet Bot">
+    <meta name="author" content="Finchy">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Finchy's Portfolio">
+    <meta property="og:description" content="Discover the projects and services Amy Finch (Finchy) has contributed to, from game development with Amazon Lumberyard and O3DE, to her entrepreneurial ventures with Finch Studio and Media Void.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://FinchStudio.ca">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:title" content="Finchy's Portfolio">
+    <meta name="twitter:description" content="Discover the projects and services Amy Finch (Finchy) has contributed to.">
+    <meta name="twitter:image" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <title>Amy's Portfolio</title>
+</head>
+<style>
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #03090d; /* Dark blue background for the page */
+}
+
+/* Navigation Styles */
+#afinchy-nav-container {
+    background-color: #051522; /* Slightly lighter shade */
+    padding: 10px 0;
+}
+
+#afinchy-site-navigation {
+    display: flex;
+    justify-content: space-between; /* Ensures items are spaced out properly */
+    align-items: center;
+    width: 100%;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 24px;
+    padding: 0 30px; /* Adjust padding if necessary */
+    display: block;
+    text-align: center;
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+#menu-afinchy-navigation {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Closer spacing between menu items */
+    width: 100%;
+}
+
+#menu-afinchy-navigation li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease;
+}
+
+#menu-afinchy-navigation li a:hover,
+#menu-afinchy-navigation li.active a {
+    background-color: #0d1f33; /* Even lighter shade for hover */
+    border-radius: 5px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #051522; /* Darker shade of base color */
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    width: auto; /* Prevent full width */
+    border-radius: 5px;
+    padding: 10px 0;
+    z-index: 1000;
+    top: 100%; /* Ensures it starts right after the nav item */
+}
+
+#menu-afinchy-navigation li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li a {
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown li a:hover {
+    background-color: #555;
+}
+
+/* Social Icons Styles */
+.social-icons {
+    display: flex;
+    margin-left: auto; /* Right aligning social icons */
+    padding-right: 15px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+/* Mobile Specific Styles */
+#menu-toggle {
+    display: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1050;
+}
+
+@media (max-width: 940px) {
+    #menu-toggle {
+        display: block;
+    }
+
+    #menu-toggle:before {
+        content: '\2630'; /* Default to Hamburger icon */
+        display: block;
+        transition: transform 0.3s ease; /* Smooth transition for icon */
+    }
+
+    #menu-toggle.open:before {
+        content: '\2715'; /* X icon for open state */
+    }
+
+    #menu-afinchy-navigation {
+        display: none;
+        flex-direction: column;
+        background-color: #051522;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 250px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1040;
+        transition: all 0.3s ease-in-out; /* Smooth transition for dropdown */
+    }
+
+    #menu-afinchy-navigation.show {
+        display: flex;
+    }
+
+    .nav-brand {
+        width: 100%; /* Center brand name on mobile */
+        text-align: center;
+    }
+
+    .social-icons {
+        display: block; /* Ensure visibility on mobile */
+        position: absolute;
+        left: 10px;
+        top: 10px;
+    }
+}
+
+    /* About Me Page Styles */
+    #about-me-page #page-title-overlay-image {
+        background-image: url('./about.jpg'); /* High-resolution farm image */
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+        width: 100%;
+        height: 300px; /* Fixed height */
+        z-index: 1;
+    }
+
+    #about-me-page #page-title-pro {
+        position: relative;
+        width: 100%;
+        height: 360px;
+    }
+
+    #about-me-page #page-title-pro::before {
+        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #03090d 100%);
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: "";
+        display: block;
+        width: 100%;
+        height: 300px;
+        z-index: 2; /* Overlay on top of the background image */
+    }
+
+    #about-me-page #page-title-pro h1 {
+        position: absolute;
+        top: 60%; /* Adjusted vertically for better visibility */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        z-index: 3;
+        font-size: 32px; /* Increased size for better readability */
+    }
+
+    #about-me-page #about-text {
+        text-align: center;
+        padding: 20px 15%; /* Increased side padding on wider screens */
+        color: white;
+        font-size: 20px; /* Increased text size for better readability */
+        line-height: 1.6;
+        max-width: 1200px; /* Maximum width set to ensure content is well-contained */
+        margin: 0 auto; /* Centering content within the page */
+    }
+
+    @media (min-width: 1024px) {
+        #about-me-page #about-text {
+            padding: 20px 50px; /* Further increased side padding on very wide screens */
+        }
+    }
+	
+/* Volunteer Page Styles */
+#volunteer-page #volunteer-page-title-overlay-image {
+    background-image: url('./volunteer.jpg'); /* High-resolution image */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height */
+    z-index: 1;
+}
+
+#volunteer-page #volunteer-page-title-pro {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+#volunteer-page #volunteer-page-title-pro::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #03090d 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    z-index: 2; /* Overlay on top of the background image */
+}
+
+#volunteer-page #volunteer-page-title-pro h1 {
+    position: absolute;
+    top: 60%; /* Adjusted vertically for better visibility */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 3;
+    font-size: 32px; /* Increased size for better readability */
+}
+
+#volunteer-page #volunteer-text {
+    text-align: center;
+    padding: 20px 15%; /* Increased side padding on wider screens */
+    color: white;
+    font-size: 20px; /* Increased text size for better readability */
+    line-height: 1.6;
+    max-width: 1200px; /* Maximum width set to ensure content is well-contained */
+    margin: 0 auto; /* Centering content within the page */
+}
+
+@media (min-width: 1024px) {
+    #volunteer-page #volunteer-text {
+        padding: 20px 50px; /* Further increased side padding on very wide screens */
+    }
+}
+	
+/* Work Page Styles */
+#work-page #work-page-title-overlay-image {
+    background-image: url('./work.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height */
+    z-index: 1;
+}
+
+#work-page #work-page-title-pro {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+#work-text {
+    text-align: center;
+    padding: 20px 15%; /* Increased side padding on wider screens */
+    color: white;
+    font-size: 20px; /* Increased text size for better readability */
+    line-height: 1.6;
+    max-width: 1200px; /* Maximum width set to ensure content is well-contained */
+    margin: 0 auto; /* Centering content within the page */
+}
+
+#work-text a {
+    color: #4A90E2; /* Example: a bright blue color for better visibility */
+    text-decoration: underline; /* Underlines the link to make it more noticeable */
+}
+
+#work-page #work-page-title-pro::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #03090d 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    z-index: 2; /* Overlay on top of the background image */
+}
+
+#work-page #work-page-title-pro h1 {
+    position: absolute;
+    top: 60%; /* Adjusted vertically for better visibility */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 3;
+    font-size: 32px; /* Increased size for better readability */
+}
+
+#work-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    color: #eee; /* Light text color for readability */
+}
+
+.work-item {
+    background-color: #041521; /* Darker background for each item */
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.work-item h2 {
+    color: #ccc;
+}
+
+.work-meta {
+    font-style: italic;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.work-description {
+    margin-bottom: 20px;
+    text-align: left;
+    color: #ddd; /* Slightly lighter text for descriptions */
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.skills-list li {
+    display: inline-block;
+    background: #062736; /* Slightly lighter background for tags */
+    color: #fff;
+    padding: 5px 15px;
+    margin: 2px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+@media (min-width: 1024px) {
+    #work-container {
+        padding: 20px 50px;
+    }
+}
+
+/* Projects Page Styles */
+#projects-page #projects-page-title-overlay-image {
+    background-image: url('./projects.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    z-index: 1;
+}
+
+#projects-page #projects-page-title-pro {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+#projects-page #projects-page-title-pro::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #03090d 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    z-index: 2; /* Overlay on top of the background image */
+}
+
+#projects-page #projects-page-title-pro h1 {
+    position: absolute;
+    top: 60%; /* Adjusted vertically for better visibility */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 3;
+    font-size: 32px; /* Increased size for better readability */
+}
+
+#projects-page #projects-text {
+    text-align: center;
+    padding: 20px 15%; /* Increased side padding on wider screens */
+    color: white;
+    font-size: 20px; /* Increased text size for better readability */
+    line-height: 1.6;
+    max-width: 1200px; /* Maximum width set to ensure content is well-contained */
+    margin: 0 auto; /* Centering content within the page */
+}
+
+@media (min-width: 1024px) {
+    #projects-page #projects-text {
+        padding: 20px 50px; /* Further increased side padding on very wide screens */
+    }
+}
+
+/* Project Cards Styling */
+.project {
+    background: #03090d; /* Dark background for project cards */
+    padding: 30px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    text-align: center; /* Center align text for consistency */
+    max-width: 800px; /* Restrict maximum width for better layout */
+}
+
+.project img {
+    max-height: 80px; /* Standardize image sizes */
+    width: auto;
+    margin-bottom: 20px; /* Space below images */
+}
+
+.project h3 {
+    font-size: 24px;
+    color: #4A90E2;
+    margin-bottom: 10px;
+}
+
+.project p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+.btn {
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #367ABD;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Introduction Text Styling for Projects Page */
+#projects-page .intro-text {
+    color: #fff; /* White text color for contrast */
+    padding: 30px; /* Adequate padding for readability */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    margin: 20px auto 40px; /* Reduced top margin to move the block up */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); /* Subtle shadow for depth */
+    text-align: center; /* Center-align the text for focus */
+    font-size: 18px; /* Comfortable reading size */
+    line-height: 1.6; /* Optimal line height for readability */
+    max-width: 800px; /* Max width to maintain line length */
+}
+
+@media (min-width: 768px) {
+    #projects-page .intro-text {
+        font-size: 20px; /* Slightly larger text on larger screens */
+    }
+}
+
+
+
+/* General Page Styling */
+#home-page {
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0; /* Ensure it's flush with the top and sides */
+    padding: 0; /* Remove padding to allow full width slider */
+    overflow: hidden; /* Prevents any horizontal overflow */
+}
+
+/* Resets padding inside main content only */
+.main-content {
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    background: #03090d; /* Dark background for better theme integration */
+}
+
+/* Main content section - Restricts to max-width */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the content section */
+}
+
+/* Image Slider - Full viewport width */
+#home-page #image-slider {
+    position: relative;
+    width: 100vw; /* Sets width to full viewport width */
+    left: calc(-50vw + 50%); /* Centering the slider */
+    margin-top: 0; /* Ensures it's flush with any nav or top of the page */
+    height: 300px; /* Fixed height for consistency */
+    overflow: hidden; /* Ensures nothing spills outside the slider area */
+}
+
+#home-page .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#home-page .slide.active {
+    opacity: 1; /* Only the active slide is visible */
+}
+
+#home-page .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, #03090d 100%);
+    z-index: 2;
+}
+
+#home-page .overlay-text {
+    position: absolute;
+    bottom: 30px;
+    left: 50px;
+    right: 50px; /* Provides padding from the edges */
+    text-align: center;
+    color: white;
+    z-index: 3;
+    font-size: 18px; /* Adjust font size for better readability */
+}
+
+/* Text and Project Section Styling */
+#home-page .main-content .intro-text, .project-section, .cta {
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto; /* Auto margins for horizontal centering */
+}
+
+#home-page .project {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: #03090d; /* Dark background for project cards */
+}
+
+/* Buttons Styling for Better Visibility and Interaction */
+#home-page .btn {
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#home-page .btn:hover {
+    background-color: #367ABD;
+}
+
+/* Specific Adjustments for Images */
+#media-void img {
+    max-height: 80px; /* Specific height without additional styling */
+    width: auto; /* Maintain aspect ratio */
+}
+
+#skynet-bot img, #nzbflix img {
+    max-height: 80px; /* Ensure both logos are the same size */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular images for Skynet and nzbFLIX logos */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+}
+
+#home-page img:hover {
+    transform: scale(1.05);
+}
+
+/* Typography Enhancements */
+#home-page h3 {
+    font-size: 24px;
+    color: #4A90E2;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#home-page p {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ccc; /* Light gray text for better visibility on dark background */
+}
+
+#home-page .overlay-text h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+#home-page .overlay-text p {
+    font-size: 20px;
+}
+
+/* Button Aesthetics */
+#home-page .btn {
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Layout Adjustments */
+#home-page .project {
+    background: #03090d;
+    padding: 30px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+}
+
+#home-page .project-section {
+    padding: 40px 20px;
+}
+
+
+/* Specific Adjustments for Images */
+#media-void img {
+    max-height: 80px; /* Limiting height for the Media Void logo */
+}
+
+#skynet-bot img, #nzbflix img {
+    max-height: 80px; /* Ensure both logos are the same size */
+    width: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Circular images for Skynet and nzbFLIX logos */
+}
+
+/* Awards Page Styles */
+#awards-page #awards-page-title-overlay-image {
+    background-image: url('./awards.jpeg'); /* High-resolution image */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height */
+    z-index: 1;
+}
+
+#awards-page #awards-page-title-pro {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+#awards-page #awards-page-title-pro::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #03090d 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    z-index: 2; /* Overlay on top of the background image */
+}
+
+#awards-page #awards-page-title-pro h1 {
+    position: absolute;
+    top: 60%; /* Adjusted vertically for better visibility */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 3;
+    font-size: 32px; /* Increased size for better readability */
+}
+
+#awards-page #awards-text {
+    text-align: center;
+    padding: 20px 15%; /* Increased side padding on wider screens */
+    color: white;
+    font-size: 20px; /* Increased text size for better readability */
+    line-height: 1.6;
+    max-width: 1200px; /* Maximum width set to ensure content is well-contained */
+    margin: 0 auto; /* Centering content within the page */
+}
+
+#awards-page #awards-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    color: #eee; /* Light text color for readability */
+}
+
+.award-item {
+    background-color: #041521; /* Darker background for each item */
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.award-item h2 {
+    color: #ccc;
+}
+
+.award-meta {
+    font-style: italic;
+    color: #888;
+    margin-bottom: 15px;
+}
+
+.award-description {
+    margin-bottom: 20px;
+    text-align: left;
+    color: #ddd; /* Slightly lighter text for descriptions */
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.skills-list li {
+    display: inline-block;
+    background: #062736; /* Slightly lighter background for tags */
+    color: #fff;
+    padding: 5px 15px;
+    margin: 2px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+@media (min-width: 1024px) {
+    #awards-page #awards-text {
+        padding: 20px 50px;
+    }
+}
+
+/* Communities Page Styles */
+#communities-page #communities-page-title-overlay-image {
+    background-image: url('./volunteer.jpg'); /* High-resolution image */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height */
+    z-index: 1;
+}
+
+#communities-page #communities-page-title-pro {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+#communities-page #communities-page-title-pro::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #03090d 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    z-index: 2; /* Overlay on top of the background image */
+}
+
+#communities-page #communities-page-title-pro h1 {
+    position: absolute;
+    top: 60%; /* Adjusted vertically for better visibility */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 3;
+    font-size: 32px; /* Increased size for better readability */
+}
+
+#communities-page #communities-text {
+    text-align: center;
+    padding: 20px 15%; /* Increased side padding on wider screens */
+    color: white;
+    font-size: 20px; /* Increased text size for better readability */
+    line-height: 1.6;
+    max-width: 1200px; /* Maximum width set to ensure content is well-contained */
+    margin: 0 auto; /* Centering content within the page */
+}
+
+@media (min-width: 1024px) {
+    #communities-page #communities-text {
+        padding: 20px 50px; /* Further increased side padding on very wide screens */
+    }
+}
+
+/* Contact Page Styles */
+#contact-page #contact-page-title-overlay-image {
+    background-image: url('./contact.jpg'); /* Adjust if a different image is desired */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height */
+    z-index: 1;
+}
+
+#contact-page #contact-page-title-pro {
+    position: relative;
+    width: 100%;
+    height: 360px;
+}
+
+#contact-page #contact-page-title-pro::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #03090d 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 300px;
+    z-index: 2; /* Overlay on top of the background image */
+}
+
+#contact-page #contact-page-title-pro h1 {
+    position: absolute;
+    top: 60%; /* Adjusted vertically for better visibility */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 3;
+    font-size: 32px; /* Increased size for better readability */
+}
+
+#contact-page #contact-text {
+    text-align: center;
+    padding: 20px 15%; /* Increased side padding on wider screens */
+    color: white;
+    font-size: 20px; /* Increased text size for better readability */
+    line-height: 1.6;
+    max-width: 1200px; /* Maximum width set to ensure content is well-contained */
+    margin: 0 auto; /* Centering content within the page */
+}
+
+.contact-container {
+    background: #041521; /* Dark background for contact link container */
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 600px; /* More uniform and less wide */
+}
+
+.contact-link, .contact-info {
+    display: block;
+    margin: 10px 0;
+    color: white; /* Ensures visibility against the dark container background */
+    font-weight: bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.contact-link i, .contact-info i {
+    color: white; /* Icon color */
+    margin-right: 10px;
+}
+
+.contact-link:hover, .discord-button:hover {
+    text-decoration: underline;
+}
+
+.discord-button {
+    display: inline-block;
+    background-color: #7289DA; /* Discord brand color */
+    color: white;
+    padding: 10px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+@media (min-width: 1024px) {
+    #contact-page #contact-text {
+        padding: 20px 50px; /* Further increased side padding on very wide screens */
+    }
+}
+
+    /* footer Styles */	
+.site-footer {
+    background-color: #051522;
+    color: white;
+    padding: 20px;
+    font-size: 16px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    margin: 20px;
+    flex: 1 1 200px; /* Flexible but with a minimum width */
+}
+
+.footer-section h4 {
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.8; /* Increased line height for better readability */
+}
+
+.footer-section ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #051522; /* Dark background color */
+    background-color: #ffffff; /* White text */
+    padding: 2px 5px; /* Optional padding for a "button-like" effect */
+    border-radius: 5px; /* Rounded corners for aesthetic */
+}
+
+.social-icons {
+    display: flex; /* Change from inline-block to flex to better manage spacing */
+    align-items: center; /* Align icons vertically */
+    margin-left: auto; /* Push to the right on larger screens */
+    padding-right: 15px; /* Spacing on the right */
+}
+
+.social-icons a {
+    color: white;
+    margin-right: 10px; /* Right margin for spacing between icons */
+    font-size: 20px; /* Icon size */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-icons a:hover {
+    color: #0d1f33; /* Darken color on hover */
+}
+
+.footer-bottom {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px; /* Ensures it's visibly separate from the content sections */
+}
+
+/* Adjustments for medium small devices (500px to 940px) */
+@media (max-width: 940px) and (min-width: 501px) {
+    .footer-content {
+        flex-direction: row; /* Change to row for side-by-side layout */
+        flex-wrap: wrap; /* Allows items to wrap as needed */
+        justify-content: space-around; /* Distributes spacing evenly */
+        align-items: flex-start; /* Aligns items at the top */
+    }
+
+    .footer-section {
+        width: 45%; /* Adjust width to allow two sections side by side */
+        margin: 10px; /* Slightly reduced margin */
+        text-align: center; /* Keeps text centered */
+    }
+
+    .social-icons {
+        justify-content: center; /* Keeps social icons centered */
+    }
+	
+	#media-void img, .project img {
+    max-height: 60px; /* Standard mobile height */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure image does not overflow its container */
+    transition: max-height 0.3s ease, width 0.3s ease, max-width 0.3s ease; /* Smooth transition for image resizing */
+}
+}
+
+/* Adjustments for very small devices (less than 500px) */
+@media (max-width: 500px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 15px; /* Slightly reduced side padding */
+    }
+
+    .footer-section {
+        width: 100%; /* Full width for very small screens */
+        margin: 5px 0; /* Reduced margin to compact the layout */
+        padding: 5px 0; /* Reduced padding to reduce space consumption */
+        text-align: center; /* Center alignment for consistency */
+        flex: none; /* Override the flex property to disable minimum width */
+        border-bottom: 1px solid #0d1f33; /* Subtle border to separate sections */
+    }
+
+    .footer-section:last-child {
+        border-bottom: none; /* Remove border from the last section to avoid a redundant line at the bottom */
+    }
+
+    .site-footer {
+        padding: 8px; /* Further reduced overall footer padding */
+        font-size: 14px; /* Maintain smaller font size to save space */
+    }
+
+    #media-void img, .project img {
+        max-height: 40px; /* Further reduce height for very small screens */
+        width: auto; /* Adjust width to maintain aspect ratio */
+        max-width: 100%; /* Ensure images do not overflow their container */
+    }
+}
+.project-section, .archived-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: #fff; /* White text color for contrast */
+}
+
+</style>
+<body>
+<div id="afinchy-nav-container">
+    <nav id="afinchy-site-navigation" class="main-navigation">
+        <span id="menu-toggle"></span>
+        <div class="nav-brand">Amy Finch</div>
+        <ul id="menu-afinchy-navigation" class="sf-menu">
+            <li class="menu-item"><a href="#" onclick="showSection('home-page'); return false;">Home</a></li>
+            <li class="menu-item"><a href="#" onclick="showSection('about-me-page'); return false;">About</a></li>
+            <li class="menu-item"><a href="#" onclick="showSection('projects-page'); return false;">Projects</a></li>
+            <li class="menu-item"><a href="#" onclick="showSection('work-page'); return false;">Work</a></li>
+            <li class="menu-item"><a href="#" onclick="showSection('volunteer-page'); return false;">Volunteer</a></li>
+            <li class="menu-item"><a href="#" onclick="showSection('awards-page'); return false;">Education</a></li>
+            <!-- <li class="menu-item"><a href="#" onclick="showSection('communities-page'); return false;">Communities</a></li> -->
+            <li class="menu-item"><a href="#" onclick="showSection('contact-page'); return false;">Contact</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/in/afinchy/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/afinchy" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </nav>
+</div>
+
+<div id="home-page" class="content-section">
+    <div id="image-slider">
+        <div class="slide active" style="background-image: url('./projects.png');">
+            <div class="overlay"></div>
+            <div class="overlay-text">
+                <h2>Empowering Digital Communities</h2>
+                <p>Explore Media Void, the ultimate hub for media enthusiasts!</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('./about.jpg');">
+            <div class="overlay"></div>
+            <div class="overlay-text">
+                <h2>Innovation in Automation</h2>
+                <p>Discover Skynet Bot, a custom-built tool enhancing Discord interactions.</p>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="intro-text">
+            <p>Welcome to the personal website of Amy Finch. Here you will find detailed information about my professional work, personal projects, and community contributions. Dive into my world of technology and innovation!</p>
+        </div>
+<div class="project-section">
+    <!-- Media Void Project -->
+    <div class="project" id="media-void">
+        <img src="media-void-logo.png" alt="Media Void Logo">
+        <h3>Media Void: A Thriving Community for Media Enthusiasts</h3>
+        <p>Media Void is the premier destination for fans of movies, TV shows, games, and more. As the founder and lead developer, I am dedicated to ensuring a seamless and engaging experience for all members. Join discussions, share insights, and explore the world of media with fellow enthusiasts. Features include community leadership, innovative feature implementations, and continuous enhancements to user interactions.</p>
+        <a href="https://MediaVoid.io" class="btn">Visit Media Void</a>
+        <a href="https://github.com/MediaVoid" class="btn">GitHub Repository</a>
+    </div>
+    
+    <!-- Skynet Bot Project -->
+    <div class="project" id="skynet-bot">
+        <img src="skynet-logo.webp" alt="Skynet Logo">
+        <h3>Skynet Bot: Revolutionizing Discord Interactions</h3>
+        <p>Skynet Bot enhances the Discord experience for Media Void's community through advanced automation. My role as developer ensures that the bot continuously evolves, adding features that foster connectivity and streamline management. Notable features include game integrations, media search tools, and advanced moderation capabilities.</p>
+        <a href="https://github.com/MediaVoid/Skynet" class="btn">Explore Skynet Bot</a>
+    </div>
+    
+    <!-- nzbFLIX Project -->
+    <div class="project" id="nzbflix">
+        <img src="nzb-flix.webp" alt="nzbFLIX Logo">
+        <h3>nzbFLIX: Your Premier Usenet Indexer for Media</h3>
+        <p>nzbFLIX offers an exclusive collection of Movies, TV Shows, Anime, and Books in various resolutions. As the technical lead, I focus on providing the best content in a user-friendly format. It features a curated selection of high-quality content, an efficient request system, and exclusive access for members.</p>
+        <a href="https://nzbFlix.net" class="btn">Visit nzbFLIX</a>
+    </div>
+</div>
+        <div class="cta">
+            <p>Interested in more projects? <a href="projects.html" class="btn">View All Projects</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="about-me-page" class="content-section">
+    <div id="page-title-pro">
+        <div id="page-title-overlay-image"></div> <!-- Image section -->
+        <h1 id="about-title">About Me</h1> <!-- Title on top of the image -->
+    </div>
+    <div id="about-text"> <!-- Text section with padding -->
+        <p>Welcome! I'm Amy Finch, a seasoned software developer based in Ontario, Canada, with a deep-rooted passion for transforming complex challenges into innovative tech solutions. Holding a Bachelor's degree in Computer Networking and boasting over a decade of expertise in the gaming industry—from engine development to marketing and 3D modeling—I bring a diverse and rich portfolio of skills. My experience stretches beyond gaming; I have honed my abilities in cyber security, full-stack development, and more, working with languages like PHP, JavaScript, HTML, and CSS.</p></br>
+
+        <p>As a creator and maintainer of my own dedicated servers, I manage sites that cater to over 30,000 daily visitors and have contributed to platforms experiencing traffic upwards of 500,000 visitors per day. My professional journey has allowed me to delve into web development, cloud computing, and data analysis, continually pushing the boundaries of technology.</p></br>
+
+        <p>I am actively engaged in the tech community, sharing insights, projects, and updates on LinkedIn and GitHub. On LinkedIn, my profile chronicles my professional adventures and current ventures, while GitHub serves as a repository for my personal projects, demonstrating my prowess across various programming languages and technologies.</p></br>
+
+        <p>Outside the digital realm, I'm an avid scuba diver, traveler, and multimedia enthusiast, with a penchant for volunteering within online communities. As an introvert, I thrive in virtual interactions and have led several online communities, leveraging platforms like Discord to foster engagement and connectivity.</p></br>
+
+        <p>From my beginnings in Ontario to roles at major companies like AWS in Washington, USA, and remote projects for clients in South Africa, my career is a testament to my dedication and relentless pursuit of excellence in the tech industry. Whether I'm developing sophisticated systems or enriching the tech community with my knowledge, I am committed to making a significant impact in the tech world.</p></br>
+    </div>
+</div>
+
+<div id="projects-page" class="content-section">
+    <div id="projects-page-title-pro">
+        <div id="projects-page-title-overlay-image"></div> <!-- Image section -->
+        <h1 id="projects-title">Projects</h1> <!-- Title on top of the image -->
+    </div>
+<div class="project-section">
+        <div class="intro-text">
+            <p>Welcome to my personal showcase at Finch Studio. This section features a comprehensive list of all the projects and services I run, maintain, or am currently developing. From active endeavors to those that have been archived, each project reflects my dedication to innovation and excellence.</p><br>
+			<p>As the sole force behind Finch Studio, my commitment extends across every initiative detailed here. Whether these projects are in development or have been part of my journey in the past, they all bear the mark of my personal touch.</p><br>
+			<p>Dive into the variety and depth of my work and discover how I am shaping the future, one project at a time.</p>
+        </div>
+    <!-- Media Void Project -->
+    <div class="project" id="media-void">
+        <img src="media-void-logo.png" alt="Media Void Logo">
+        <h3>Media Void: A Thriving Community for Media Enthusiasts</h3>
+        <p>Media Void is the premier destination for fans of movies, TV shows, games, and more. As the founder and lead developer, I am dedicated to ensuring a seamless and engaging experience for all members. Join discussions, share insights, and explore the world of media with fellow enthusiasts. Features include community leadership, innovative feature implementations, and continuous enhancements to user interactions.</p>
+        <a href="https://MediaVoid.io" class="btn">Visit Media Void</a>
+        <a href="https://github.com/MediaVoid" class="btn">GitHub Repository</a>
+    </div>
+    
+    <!-- Skynet Bot Project -->
+    <div class="project" id="skynet-bot">
+        <img src="skynet-logo.webp" alt="Skynet Logo">
+        <h3>Skynet Bot: Revolutionizing Discord Interactions</h3>
+        <p>Skynet Bot enhances the Discord experience for Media Void's community through advanced automation. My role as developer ensures that the bot continuously evolves, adding features that foster connectivity and streamline management. Notable features include game integrations, media search tools, and advanced moderation capabilities.</p>
+        <a href="https://github.com/MediaVoid/Skynet" class="btn">Explore Skynet Bot</a>
+    </div>
+    
+    <!-- nzbFLIX Project -->
+    <div class="project" id="nzbflix">
+        <img src="nzb-flix.webp" alt="nzbFLIX Logo">
+        <h3>nzbFLIX: Your Premier Usenet Indexer for Media</h3>
+        <p>nzbFLIX offers an exclusive collection of Movies, TV Shows, Anime, and Books in various resolutions. As the technical lead, I focus on providing the best content in a user-friendly format. It features a curated selection of high-quality content, an efficient request system, and exclusive access for members.</p>
+        <a href="https://nzbFlix.net" class="btn">Visit nzbFLIX</a>
+    </div>
+	
+<!-- AnonymZ Project -->
+    <div class="project" id="anonymz">
+        <h3>AnonymZ.io: Secure Link Anonymization</h3>
+        <p>Welcome to AnonymZ.io, a service dedicated to anonymizing links for enhanced privacy and security. Our goal is to protect the confidentiality of your online activities by masking the source of web traffic. This is essential for maintaining privacy, especially for services handling sensitive information.</p>
+        <a href="https://anonymz.io" class="btn">Visit AnonymZ</a>
+        <a href="https://github.com/Finch-Studio/AnonymZ/" class="btn">GitHub Repository</a>
+    </div>
+
+    <!-- Fear The Wild Project -->
+    <div class="project" id="fear-the-wild">
+        <img src="ftw.png" alt="Fear The Wild Logo">
+        <h3>Fear The Wild: Open World Zombie Survival</h3>
+        <p>“Fear The Wild,” transports players to a post-apocalyptic world overrun by zombies. This open-world game challenges players to survive and rebuild society amidst a dynamic and evolving environment across North America. Currently, this ambitious project is on hold as a hobbyist venture by Finch Studio.</p>
+        <a href="https://fearthewild.gg" class="btn">Explore Game</a>
+    </div>
+
+    <!-- Flashback Salvage Project -->
+    <div class="project" id="flashback-salvage">
+        <img src="flashback-salvage-logo.png" alt="Flashback Salvage Logo">
+        <h3>Flashback Salvage: Vintage and Retro Treasures</h3>
+        <p>Flashback Salvage offers a curated collection of vintage furniture, decor, and unique pieces. Finch Studio manages its digital presence, ensuring that the charm of the past resonates in today’s digital age through impeccable branding and online services.</p>
+        <a href="https://flashbacksalvage.com" class="btn">Visit Flashback Salvage</a>
+    </div>
+
+    <!-- FinchFlix Project -->
+    <div class="project" id="finchflix">
+        <h3>FinchFlix: Ultimate Movie Service for Home Theaters</h3>
+        <p>FinchFlix delivers a cinematic experience with a Netflix-like interface combined with Blu-ray quality. This private multimedia server boasts 300 terabytes of storage and is designed for uninterrupted access, primarily catering to home theater enthusiasts.</p>
+        <a href="https://finchflix.example.com" class="btn">Visit FinchFlix</a>
+    </div>
+	
+	<br><br>
+<div class="archived-section">
+    <!-- Archived Projects Heading -->
+    <h2>Archived Projects</h2>
+    
+    <!-- The Day Before Project Countdown -->
+    <div class="project" id="day-before-countdown">
+        <h3>The Day Before Project Countdown</h3>
+        <p>Finch Studio developed a countdown project for the game "The Day Before". Once released, this countdown was shared with the broader community. The intention was that, upon reaching zero, users would be presented with an interactive game map, forums, a mod database, a wiki, among other features. However, after being banned from the game's networks, we replaced the site content with a cautionary notice about the game's monetization strategies and discontinued updates, later cancelling the domain.</p>
+		<a href="#" class="btn">Visit Site (Coming Soon)</a>
+    </div>
+    
+    <!-- Empire Finch -->
+    <div class="project" id="empire-finch">
+        <h3>The Empire Finch</h3>
+        <p>During my high school and college years, I operated The Empire Finch, a building service within Minecraft that earned real money and in-game currency. While this journey has ended, the memories of our iconic builds are preserved in an archive for enthusiasts and curious minds alike.</p>
+		<a href="#" class="btn">Visit Site (Coming Soon)</a>
+    </div>
+</div>
+</div>
+</div>
+
+<div id="work-page" class="content-section">
+    <div id="work-page-title-pro">
+        <div id="work-page-title-overlay-image"></div>
+        <h1 id="work-title">Professional Journey</h1>
+    </div>
+    <div id="work-text">
+        <p>These are the careers that I have worked in that are related to my field. While it may not seem extensive, I have held various other positions unrelated to my line of work to maintain a steady income. Alongside these and other jobs, I have also managed my own studio and its related projects, detailed on the <a href="#" onclick="showSection('projects-page'); return false;">projects page</a>.</p>
+    </div>
+    <div id="work-container">
+		<div class="work-item">
+            <h2>Founder, Lead Level Designer, Systems Admin</h2>
+            <p class="work-meta">Finch Studio Inc · Self-employed · Jan 2016 - Present</p>
+            <p class="work-description">
+                At Finch Studio, I oversee the development of 'Fear The Wild,' an innovative PC game, handling everything from level design to server management. My responsibilities include asset creation, coding, and the management of mixed server environments critical for game functionality and data security. The studio supports over 300TB of data across various server setups, ensuring high performance and reliability.
+            </p>
+            <ul class="skills-list">
+                <li>Game Development</li>
+                <li>Level Design</li>
+                <li>Server Management</li>
+                <li>Promotional Activities</li>
+                <li>Data Security</li>
+                <li>Infrastructure Scalability</li>
+            </ul>
+        </div>
+        <div class="work-item">
+            <h2>Full Stack Developer</h2>
+            <p class="work-meta">NinjaCentral · Freelance · Dec 2023 - Present</p>
+            <p class="work-description">
+                As the sole Full Stack Developer at NinjaCentral, a leader in Usenet indexing, I transitioned from support and marketing roles to spearhead all aspects of website and system development. I manage a platform serving over 20,000 daily visitors and a million hits, driving user engagement and operational efficiency through the development of tailored features and strategic marketing initiatives. I also oversee community interaction via Discord, enhancing user experience with data-driven strategies and collaborative team interactions.
+            </p>
+            <ul class="skills-list">
+                <li>Web Development</li>
+                <li>User Engagement</li>
+                <li>Marketing Strategies</li>
+                <li>Community Management</li>
+                <li>Data Analysis</li>
+                <li>System Automation</li>
+            </ul>
+        </div>
+        <div class="work-item">
+            <h2>Tech Training Specialist II</h2>
+            <p class="work-meta">Amazon Web Services (AWS) · Permanent Full-time · Jan 2022 - Jun 2023</p>
+            <p class="work-description">
+                At AWS, I elevated my role from a community manager to Tech Training Specialist II, where I managed the O3DE and Amazon Lumberyard Discord communities and collaborated on multi-disciplinary projects to develop and publish technical blogs and training materials. My contributions significantly enhanced user engagement and streamlined the transition of services such as the Amazon Lumberyard engine to Open 3D Engine, improving legal compliance and project execution strategies.
+            </p>
+            <ul class="skills-list">
+                <li>Community Management</li>
+                <li>Content Development</li>
+                <li>Event Management</li>
+                <li>Strategic Planning</li>
+                <li>Technical Training</li>
+                <li>Legal Compliance</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="volunteer-page" class="content-section">
+    <div id="volunteer-page-title-pro">
+        <div id="volunteer-page-title-overlay-image"></div> <!-- Image section -->
+        <h1 id="volunteer-title">Volunteer</h1> <!-- Title on top of the image -->
+    </div>
+    <div id="volunteer-text"> <!-- Text section with padding -->
+        <p>Welcome to my journey of service and innovation! I'm Amy Finch, dedicated to merging my passion for technology with a commitment to community service. Here's an insight into my various volunteer efforts and roles that showcase my dedication to making a difference.</p></br>
+
+        <h2>Overview</h2>
+        <p>From early educational initiatives to significant contributions in the tech industry, I've always been passionate about giving back to the community. Whether through teaching, leading online groups, or developing community-driven tech solutions, I strive to make a positive impact.</p></br>
+
+        <h2>Professional Roles and Contributions</h2>
+        <p>As a founding member, community manager, and developer at Media Void, I've played a pivotal role in nurturing a dynamic community for media enthusiasts, and as an AWS Community Builder, I've contributed to the Game Tech sector, promoting growth and engagement.</p></br>
+
+        <h2>Special Projects and Initiatives</h2>
+        <p>I manage the Community Lumberyard Discord Server, providing a platform for users to share resources and support each other in using Amazon's Lumberyard game engine. My role in the AWS Game Dev Council also allowed me to influence future tech developments significantly.</p></br>
+
+        <h2>Early Educational Volunteering</h2>
+        <p>During my high school years, I was actively involved in various volunteering efforts, including teaching web design, managing classroom animals, and serving Christmas dinners to the homeless, demonstrating my early commitment to community service.</p></br>
+
+        <p>Through these roles and experiences, I aim to combine my technical expertise with my love for community service, creating impactful changes both online and offline. Join me on this journey of continuous learning and community engagement.</p></br>
+    </div>
+</div>
+
+<div id="awards-page" class="content-section">
+    <div id="awards-page-title-pro">
+        <div id="awards-page-title-overlay-image"></div>
+        <h1 id="awards-title">Awards & Education</h1>
+    </div>
+	<div id="awards-text"> <!-- Text section with padding -->
+        <p>Welcome to my educational and professional recognitions showcase. Below are details of my certifications, diplomas, and accolades that mark milestones in my journey of continuous learning and excellence.</p>
+    </div>
+    <div id="awards-container">
+        <div class="award-item">
+            <h2>Google Cybersecurity Professional Certificate</h2>
+            <p class="award-meta">Google - May 2023</p>
+            <p class="award-description">Completed a comprehensive program focused on cybersecurity, mastering skills in Python, Linux, SQL, and the use of SIEM tools to protect networks and manage data security.</p>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>Linux</li>
+                <li>SQL</li>
+                <li>SIEM Tools</li>
+            </ul>
+        </div>
+        <div class="award-item">
+            <h2>Ontario College Diploma, Computer Systems Technology - Networking</h2>
+            <p class="award-meta">Georgian College - Jan 2016 - Jun 2018</p>
+            <p class="award-description">Acquired extensive knowledge in networking, operating systems, and system administration. Developed capabilities in network design, troubleshooting, and security.</p>
+            <ul class="skills-list">
+                <li>Network Design</li>
+                <li>System Administration</li>
+                <li>Virtualization</li>
+                <li>Network Security</li>
+            </ul>
+        </div>
+        <div class="award-item">
+            <h2>High School Diploma, Technology</h2>
+            <p class="award-meta">Huron Heights Secondary School - 2011 - 2014</p>
+            <p class="award-description">Engaged in multiple technological initiatives, graduating with honors and receiving a 4-year scholarship.</p>
+        </div>
+        <div class="award-item">
+            <h2>PADI Open Water Diver Certification</h2>
+            <p class="award-meta">PADI - August 2019</p>
+            <p class="award-description">Completed the PADI Open Water Diver course, enhancing aquatic safety skills and scuba diving proficiency.</p>
+        </div>
+    </div>
+</div>
+
+<div id="communities-page" class="content-section">
+    <div id="communities-page-title-pro">
+        <div id="communities-page-title-overlay-image"></div> <!-- Image section -->
+        <h1 id="communities-title">Communities</h1> <!-- Title on top of the image -->
+    </div>
+	<br><br><br><br><br><br><br>
+    <div id="communities-text"> <!-- Text section with padding -->
+        <p>Whoops, nothing to see here.</p>
+    </div>
+	<br><br><br><br><br><br><br><br><br><br><br>
+</div>
+
+
+<div id="contact-page" class="content-section">
+    <div id="contact-page-title-pro">
+        <div id="contact-page-title-overlay-image"></div>
+        <h1 id="contact-title">Contact</h1>
+    </div>
+    <div id="contact-text">
+        <p>Located in Canada, I am available for freelance, part-time, full-time, contract, or permanent opportunities. Connect with me through the following channels:</p>
+        <div class="contact-container">
+            <a href="https://www.linkedin.com/in/afinchy/" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/afinchy" target="_blank" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <div class="contact-info">
+                <i class="fab fa-discord"></i> Discord: afinchy
+            </div>
+            <a href="mailto:contact@finchstudio.ca" class="contact-link">
+                <i class="fa fa-envelope"></i> Email: contact@finchstudio.ca
+            </a>
+        </div>
+        <p>Join the Finch Studio community on Discord:</p>
+        <a href="https://discord.gg/rvVuZswQ5p" target="_blank" class="discord-button">
+            Join Finch Studio Discord Server
+        </a>
+    </div>
+</div>
+
+<script>
+
+    function showSection(sectionId) {
+        var allSections = document.querySelectorAll('.content-section');
+        allSections.forEach(function(section) {
+            section.style.display = 'none';
+            section.classList.remove('active');
+        });
+        var activeSection = document.getElementById(sectionId);
+        activeSection.style.display = 'block';
+        activeSection.classList.add('active');
+
+        var allNavItems = document.querySelectorAll('#menu-afinchy-navigation li');
+        allNavItems.forEach(function(item) {
+            item.classList.remove('active');
+            var link = item.querySelector('a');
+            if (link.getAttribute('onclick').includes(sectionId)) {
+                item.classList.add('active');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        showSection('home-page');
+    });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var menuToggle = document.getElementById('menu-toggle');
+    var nav = document.getElementById('menu-afinchy-navigation');
+
+    menuToggle.addEventListener('click', function() {
+        nav.classList.toggle('show');
+        if (menuToggle.classList.contains('open')) {
+            menuToggle.classList.remove('open');
+            menuToggle.classList.add('closed');
+        } else {
+            menuToggle.classList.remove('closed');
+            menuToggle.classList.add('open');
+        }
+    });
+
+    // Close the dropdown and toggle the icon back to hamburger when an item is clicked
+    document.querySelectorAll('#menu-afinchy-navigation li a').forEach(item => {
+        item.addEventListener('click', function() {
+            if (nav.classList.contains('show')) {
+                nav.classList.remove('show');
+                menuToggle.classList.remove('open');
+                menuToggle.classList.add('closed');
+            }
+        });
+    });
+
+    // Close the dropdown when clicking outside of the menu
+    document.addEventListener('click', function(event) {
+        if (!menuToggle.contains(event.target) && !nav.contains(event.target) && nav.classList.contains('show')) {
+            nav.classList.remove('show');
+            menuToggle.classList.remove('open');
+            menuToggle.classList.add('closed');
+        }
+    });
+});
+</script>
+
+<script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('#home-page .slide');
+    let currentSlide = 0;
+    setInterval(function() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }, 9000); // Change slide every 5 seconds
+});
+</script>
+</body>
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: Contact@FinchStudio.ca</p>
+            <p>Location: Ontario, Canada</p>
+        </div>
+        <div class="footer-section">
+            <h4>Quick Links:</h4>
+            <ul>
+                <li><a href="https://finchstudio.ca">Finch Studio</a></li>
+                <li><a href="https://skynetbot.io">Skynet Bot</a></li>
+                <li><a href="https://nzbflix.net">nzbFLIX</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Additional Links:</h4>
+            <ul>
+                <li><a href="https://anonymz.io">AnonymZ</a></li>
+                <li><a href="https://mediavoid.io">Media Void</a></li>
+                <li><a href="https://amyfinch.ca">Linktree</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Follow Me</h4>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/afinchy/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/afinchy" target="_blank"><i class="fab fa-github"></i></a>
+                <!-- Add other social media links here -->				
+            </div>
+			<br>
+			<p>&copy; <span id="current-year"></span> Amy Finch. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+</html>
