@@ -1,13 +1,17 @@
-
-
+# BEGIN Custom Rewrite Rules
 RewriteEngine On
+RewriteBase /
+
+# Redirect non-HTTPS requests to HTTPS
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+# Serve custom error page for 404 errors
 ErrorDocument 404 /index.html
 
-
+# Disable directory browsing
 Options -Indexes
+# END Custom Rewrite Rules
 
 # php -- BEGIN cPanel-generated handler, do not edit
 # Set the “ea-php80” package as the default “PHP” programming language.
